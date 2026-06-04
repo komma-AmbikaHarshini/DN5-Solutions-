@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        input, select, textarea, button {
+            display: block;
+            margin-bottom: 12px;
+            padding: 8px;
+            width: 320px;
+            max-width: 100%;
+        }
+
+        #feeDisplay, #charCount, #phoneError, #confirmMsg {
+            margin-top: 8px;
+            font-weight: bold;
+        }
+
+        #eventImage {
+            width: 180px;
+            transition: transform 0.2s ease;
+            cursor: pointer;
+            border: 2px solid #333;
+            border-radius: 8px;
+        }
+
+        .largeImage {
+            transform: scale(1.4);
+        }
+
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Event Feedback</h1>
+
+<label>Phone Number:</label>
+<input type="text" id="phone" onblur="validatePhone()" placeholder="Enter 10-digit phone number">
+<div id="phoneError" class="error"></div>
+
+<label>Select Event:</label>
+<select id="eventSelect" onchange="showFee()">
+    <option value="">-- Select --</option>
+    <option value="100">Music Event - ₹100</option>
+    <option value="150">Dance Event - ₹150</option>
+    <option value="200">Food Festival - ₹200</option>
+</select>
+<div id="feeDisplay"></div>
+
+<label>Feedback:</label>
+<textarea id="feedback" rows="5" onkeyup="countCharacters()" placeholder="Write your feedback here"></textarea>
+<div id="charCount">Characters: 0</div>
+
+<button type="button" onclick="showConfirmation()">Submit Feedback</button>
+<div id="confirmMsg" class="success"></div>
+
+<br>
+
+<img id="eventImage"
+     src="Images/Event7.jpeg"
+     alt="Event Image"
+     ondblclick="enlargeImage()">
+
+<script>
+    function validatePhone() {
+        let phone = document.getElementById("phone").value;
+        let error = document.getElementById("phoneError");
+
+        if (phone.length !== 10 || isNaN(phone)) {
+            error.textContent = "Please enter a valid 10-digit phone number.";
+        } else {
+            error.textContent = "";
+        }
+    }
+
+    function showFee() {
+        let fee = document.getElementById("eventSelect").value;
+        let display = document.getElementById("feeDisplay");
+
+        if (fee) {
+            display.textContent = "Selected fee: ₹" + fee;
+        } else {
+            display.textContent = "";
+        }
+    }
+
+    function countCharacters() {
+        let text = document.getElementById("feedback").value;
+        document.getElementById("charCount").textContent = "Characters: " + text.length;
+    }
+
+    function showConfirmation() {
+        document.getElementById("confirmMsg").textContent = "Feedback submitted successfully!";
+    }
+
+    function enlargeImage() {
+        document.getElementById("eventImage").classList.toggle("largeImage");
+    }
+</script>
+
+</body>
+</html>

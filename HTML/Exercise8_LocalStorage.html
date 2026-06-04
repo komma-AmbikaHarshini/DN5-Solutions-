@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        select, button {
+            padding: 8px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Save User Preferences</h1>
+
+<label>Select Preferred Event Type:</label><br>
+<select id="prefEvent" onchange="savePreference()">
+    <option value="">-- Select --</option>
+    <option value="Music">Music</option>
+    <option value="Sports">Sports</option>
+    <option value="Cultural">Cultural</option>
+</select>
+
+<br>
+<button type="button" onclick="clearPreferences()">Clear Preferences</button>
+
+<script>
+    window.onload = function () {
+        let savedEvent = localStorage.getItem("preferredEvent");
+        if (savedEvent) {
+            document.getElementById("prefEvent").value = savedEvent;
+        }
+    };
+
+    function savePreference() {
+        let selected = document.getElementById("prefEvent").value;
+        localStorage.setItem("preferredEvent", selected);
+        sessionStorage.setItem("preferredEvent", selected);
+        alert("Preference saved!");
+    }
+
+    function clearPreferences() {
+        localStorage.clear();
+        sessionStorage.clear();
+        document.getElementById("prefEvent").value = "";
+        alert("Preferences cleared.");
+    }
+</script>
+
+</body>
+</html>

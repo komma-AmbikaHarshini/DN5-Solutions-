@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debugging Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .box {
+            width: 200px;
+            height: 100px;
+            background: lightblue;
+            padding: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Debugging with Chrome DevTools</h1>
+<p>Open Inspect Element and change styles live.</p>
+
+<div class="box" id="demoBox">
+    Debug this box
+</div>
+
+<button onclick="testConsole()">Test Console Log</button>
+
+<script>
+    console.log("Page loaded successfully");
+
+    function testConsole() {
+        let box = document.getElementById("demoBox");
+        console.log("Button clicked");
+        box.style.backgroundColor = "lightgreen";
+        box.textContent = "Box color changed";
+    }
+</script>
+
+</body>
+</html>
