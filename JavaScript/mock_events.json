@@ -1,0 +1,6 @@
+[
+    { "name": "Global Tech Summit 2026", "date": "Nov 10, 2026", "location": "Hall A", "seats": 120 },
+    { "name": "Organic Farmers Market", "date": "Nov 15, 2026", "location": "Main Plaza", "seats": 300 },
+    { "name": "Acoustic Jazz & Wine", "date": "Nov 18, 2026", "location": "Garden Lounge", "seats": 45 },
+    { "name": "Street Art Festival", "date": "Dec 02, 2026", "location": "East Avenue", "seats": 150 }
+]

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 2: Syntax, Data Types, and Operators</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Shared Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-brand">Community Event Portal</div>
+        <div class="nav-selector">
+            <label for="exercise-select">Go to:</label>
+            <select id="exercise-select" onchange="location = this.value;">
+                <option value="Exercise1_Basics.html">1. Basics & Setup</option>
+                <option value="Exercise2_Syntax.html" selected>2. Syntax & Data Types</option>
+                <option value="Exercise3_Conditionals.html">3. Conditionals & Errors</option>
+                <option value="Exercise4_Functions.html">4. Functions & Closures</option>
+                <option value="Exercise5_Objects.html">5. Objects & Prototypes</option>
+                <option value="Exercise6_Arrays.html">6. Arrays & Methods</option>
+                <option value="Exercise7_DOM.html">7. DOM Manipulation</option>
+                <option value="Exercise8_Events.html">8. Event Handling</option>
+                <option value="Exercise9_Async.html">9. Async & Promises</option>
+                <option value="Exercise10_ModernJS.html">10. Modern JS (ES6+)</option>
+                <option value="Exercise11_Forms.html">11. Working with Forms</option>
+                <option value="Exercise12_AJAX.html">12. AJAX & Fetch API</option>
+                <option value="Exercise13_Debugging.html">13. Debugging & Testing</option>
+                <option value="Exercise14_jQuery.html">14. jQuery & Frameworks</option>
+            </select>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="breadcrumb">JavaScript Exercises &gt; Module 2</div>
+        
+        <header class="exercise-header">
+            <h1>Syntax, Data Types, and Operators</h1>
+            <p class="subtitle">Scenario: Store event details like name, date, and available seats.</p>
+        </header>
+
+        <section class="card">
+            <h2 class="card-title">Objective & Task</h2>
+            <p>Use proper data types and operations to model event properties.</p>
+            <ul style="margin-top: 1rem; margin-left: 1.5rem; color: var(--text-secondary);">
+                <li>Use <code>const</code> for event name and date, <code>let</code> for available seats.</li>
+                <li>Concatenate event info using template literals.</li>
+                <li>Use <code>++</code> or <code>--</code> to manage available seat count dynamically.</li>
+            </ul>
+        </section>
+
+        <!-- Live Demo Card -->
+        <section class="card">
+            <h2 class="card-title">Interactive Event Booking</h2>
+            
+            <div class="demo-area">
+                <div id="eventDescription" style="font-size: 1.1rem; font-weight: 500; text-align: center; margin-bottom: 1.5rem;">
+                    <!-- Populated by JavaScript -->
+                </div>
+
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <span class="label">Event Name</span>
+                        <span class="value" id="dispName" style="color: var(--accent-hover);">-</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Event Date</span>
+                        <span class="value" id="dispDate">-</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Seats Available</span>
+                        <span class="value" id="dispSeats" style="color: var(--success-color);">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 1.5rem; display: flex; gap: 1rem; justify-content: center;">
+                <button class="btn btn-primary" onclick="bookSeat()">Register (Seats--)</button>
+                <button class="btn btn-secondary" onclick="cancelSeat()">Cancel (Seats++)</button>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2 class="card-title">Portal Console Logs</h2>
+            <div class="console-box" id="syntaxConsole">
+                <!-- Executions will be logged here -->
+            </div>
+        </section>
+    </main>
+
+    <script src="exercise2.js"></script>
+</body>
+</html>
