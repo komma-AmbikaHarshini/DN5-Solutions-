@@ -1,0 +1,14 @@
+/Users/ambika/Desktop/DN5-Solutions/CSharp/bin/Debug/net10.0/CSharp
+/Users/ambika/Desktop/DN5-Solutions/CSharp/bin/Debug/net10.0/CSharp.deps.json
+/Users/ambika/Desktop/DN5-Solutions/CSharp/bin/Debug/net10.0/CSharp.runtimeconfig.json
+/Users/ambika/Desktop/DN5-Solutions/CSharp/bin/Debug/net10.0/CSharp.dll
+/Users/ambika/Desktop/DN5-Solutions/CSharp/bin/Debug/net10.0/CSharp.pdb
+/Users/ambika/Desktop/DN5-Solutions/CSharp/obj/Debug/net10.0/CSharp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/ambika/Desktop/DN5-Solutions/CSharp/obj/Debug/net10.0/CSharp.AssemblyInfoInputs.cache
+/Users/ambika/Desktop/DN5-Solutions/CSharp/obj/Debug/net10.0/CSharp.AssemblyInfo.cs
+/Users/ambika/Desktop/DN5-Solutions/CSharp/obj/Debug/net10.0/CSharp.csproj.CoreCompileInputs.cache
+/Users/ambika/Desktop/DN5-Solutions/CSharp/obj/Debug/net10.0/CSharp.dll
+/Users/ambika/Desktop/DN5-Solutions/CSharp/obj/Debug/net10.0/refint/CSharp.dll
+/Users/ambika/Desktop/DN5-Solutions/CSharp/obj/Debug/net10.0/CSharp.pdb
+/Users/ambika/Desktop/DN5-Solutions/CSharp/obj/Debug/net10.0/CSharp.genruntimeconfig.cache
+/Users/ambika/Desktop/DN5-Solutions/CSharp/obj/Debug/net10.0/ref/CSharp.dll
