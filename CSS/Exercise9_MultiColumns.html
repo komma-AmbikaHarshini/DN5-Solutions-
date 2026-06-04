@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Exercise 9 — Multi-Columns</title>
+    <style>
+        body{font-family:Georgia,serif;padding:24px;background:#fffefc}
+        .article{column-count:3;column-gap:24px;column-rule:1px solid #eee;max-width:1000px}
+        h1{font-family:Arial,Helvetica,sans-serif}
+        @media (max-width:900px){.article{column-count:2}}
+        @media (max-width:600px){.article{column-count:1}}
+    </style>
+</head>
+<body>
+    <h1>Exercise 9 — Multi-Columns</h1>
+    <div class="article">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p>
+        <p>Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.</p>
+        <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero.</p>
+        <p>Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Exercise 6 — Link / List Styling</title>
+    <style>
+        body{font-family:Arial,Helvetica,sans-serif;padding:20px;background:#f7fafc}
+        nav{background:#fff;border-radius:8px;padding:12px;box-shadow:0 1px 3px rgba(0,0,0,0.08)}
+        /* Horizontal nav from a list */
+        .nav{list-style:none;display:flex;gap:12px;margin:0;padding:0}
+        .nav a{display:block;padding:8px 12px;color:#1f2937;text-decoration:none;border-radius:6px;transition:all .15s}
+        .nav a:hover{background:#1d4ed8;color:white;transform:translateY(-1px)}
+
+        /* Distinguished active link */
+        .nav a.active{background:#111827;color:#fff}
+
+        /* Vertical list example with links */
+        .resources{margin-top:20px}
+        .resources ul{list-style:square;margin-left:20px}
+        .resources a{color:#2563eb}
+    </style>
+</head>
+<body>
+    <h1>Exercise 6 — Link / List Styling</h1>
+    <nav>
+        <ul class="nav">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="resources">
+        <h2>Useful Links</h2>
+        <ul>
+            <li><a href="#">Community Guidelines</a></li>
+            <li><a href="#">Volunteer Signup</a></li>
+            <li><a href="#">Upcoming Workshops</a></li>
+        </ul>
+    </section>
+</body>
+</html>

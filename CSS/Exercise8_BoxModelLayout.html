@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Exercise 8 — Box Model & Layout</title>
+    <style>
+        :root{--card-bg:#fff;--card-border:#e6eef7}
+        *{box-sizing:border-box}
+        body{font-family:Arial;padding:24px;background:#f3f4f6}
+        .container{display:flex;gap:16px;flex-wrap:wrap}
+        .card{background:var(--card-bg);border:1px solid var(--card-border);padding:16px;border-radius:8px;flex:1 1 220px;min-width:180px}
+        .card h3{margin:0 0 8px}
+        .card p{margin:0}
+
+        /* Demonstrate margin, border and padding visually */
+        .example{margin-top:18px}
+        .box{background:#eef2ff;border:3px dashed #c7d2fe;padding:20px;margin:12px}
+    </style>
+</head>
+<body>
+    <h1>Exercise 8 — Box Model & Layout</h1>
+    <p>Resize the window to see the flexible cards wrap.</p>
+    <div class="container">
+        <div class="card">
+            <h3>Card A</h3>
+            <p>Uses padding for inner spacing and border for separation.</p>
+        </div>
+        <div class="card">
+            <h3>Card B</h3>
+            <p>Flexible item with min-width to keep readability.</p>
+        </div>
+        <div class="card">
+            <h3>Card C</h3>
+            <p>Demonstrates box-sizing set to <code>border-box</code>.</p>
+        </div>
+    </div>
+
+    <div class="example">
+        <div class="box">This box has margin, border and padding.</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Exercise 7 — Table Styling</title>
+    <style>
+        body{font-family:system-ui,Segoe UI,Arial;margin:20px;background:#f8fafc}
+        table{width:100%;border-collapse:collapse;background:#fff;border-radius:6px;overflow:hidden}
+        th,td{padding:12px;text-align:left;border-bottom:1px solid #e6eef7}
+        th{background:#e0f2fe;color:#0369a1;font-weight:600}
+        tr:nth-child(even){background:#fbfdff}
+        tr:hover{background:#f1f5f9}
+        caption{padding:10px;font-weight:600}
+    </style>
+</head>
+<body>
+    <h1>Exercise 7 — Table Styling</h1>
+    <table>
+        <caption>Upcoming Community Events</caption>
+        <thead>
+            <tr>
+                <th>Event</th>
+                <th>Date</th>
+                <th>Location</th>
+                <th>Seats</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Neighborhood Cleanup</td>
+                <td>June 20</td>
+                <td>Riverside Park</td>
+                <td>24</td>
+            </tr>
+            <tr>
+                <td>Summer Concert</td>
+                <td>July 8</td>
+                <td>Main Square</td>
+                <td>120</td>
+            </tr>
+            <tr>
+                <td>Food Fair</td>
+                <td>Aug 2</td>
+                <td>Market Hall</td>
+                <td>80</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

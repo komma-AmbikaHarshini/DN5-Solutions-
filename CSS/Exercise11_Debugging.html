@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Exercise 11 — Debugging</title>
+    <style>
+        /* Intentionally simple, correct styles to demonstrate debugging best-practices */
+        body{font-family:Arial;padding:20px;background:#ffffff}
+        .alert{background:#fff7ed;border-left:4px solid #f59e0b;padding:12px;margin-bottom:12px}
+        .fixed-sample{width:100%;max-width:600px;border:1px solid #e6eef7;padding:12px;border-radius:6px}
+        /* Example: fix a common issue — ensure images scale */
+        img{max-width:100%;height:auto;display:block}
+    </style>
+</head>
+<body>
+    <h1>Exercise 11 — Debugging</h1>
+    <div class="alert">Use developer tools to inspect layout, colors, and the box model.</div>
+
+    <div class="fixed-sample">
+        <h2>Fixed Layout Example</h2>
+        <p>The sample below demonstrates a commonly-misstyled image corrected by adding <code>max-width:100%</code>.</p>
+        <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?w=800&q=60" alt="Responsive">
+    </div>
+</body>
+</html>
