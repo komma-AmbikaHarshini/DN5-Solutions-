@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 14: Display and Visibility</title>
+    <!-- Link Bootstrap 5 via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+        .card-custom {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+        }
+        .visibility-box {
+            border: 2px dashed;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Shared Top Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm border-bottom border-secondary">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">Bootstrap 5 Portal</a>
+            <div class="d-flex align-items-center">
+                <label class="text-light me-2 mb-0 d-none d-sm-block" for="exercise-select">Go to:</label>
+                <select id="exercise-select" class="form-select form-select-sm bg-dark text-light border-secondary" style="width: auto;" onchange="location = this.value;">
+                    <option value="Exercise1_Setup.html">1. Setting Up Bootstrap 5</option>
+                    <option value="Exercise2_Structure.html">2. Structure & Files</option>
+                    <option value="Exercise3_GridBasics.html">3. Responsive Grid Layout</option>
+                    <option value="Exercise4_ColumnLayouts.html">4. Column Layouts & Grid</option>
+                    <option value="Exercise5_AlignmentReordering.html">5. Alignment & Reordering</option>
+                    <option value="Exercise6_Flexbox.html">6. Flexbox Utilities</option>
+                    <option value="Exercise7_Typography.html">7. Typography Utilities</option>
+                    <option value="Exercise8_Forms.html">8. Bootstrap Forms</option>
+                    <option value="Exercise9_Buttons.html">9. Contextual Buttons</option>
+                    <option value="Exercise10_Navbars.html">10. Navbars & Tabs</option>
+                    <option value="Exercise11_CardsMedia.html">11. Cards & Media Objects</option>
+                    <option value="Exercise12_Spacing.html">12. Spacing Utilities</option>
+                    <option value="Exercise13_ColorsBackgrounds.html">13. Colors & Backgrounds</option>
+                    <option value="Exercise14_DisplayVisibility.html" selected>14. Display & Visibility</option>
+                    <option value="Exercise15_BordersShadows.html">15. Borders & Shadows</option>
+                    <option value="Exercise16_Positioning.html">16. Positioning Utilities</option>
+                    <option value="Exercise17_Icons.html">17. Bootstrap Icons</option>
+                    <option value="Exercise18_Plugins.html">18. JS Plugins (Modal/Accordion)</option>
+                    <option value="Exercise19_SassCustomization.html">19. Sass Customization</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container (using container-fluid to demonstrate sidebar layout) -->
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#" class="text-info text-decoration-none">Bootstrap Exercises</a></li>
+                        <li class="breadcrumb-item active text-secondary" aria-current="page">Module 14</li>
+                    </ol>
+                </nav>
+
+                <header class="mb-4">
+                    <h1 class="fw-bold text-info">Display and Visibility</h1>
+                    <p class="lead text-secondary">Hiding and displaying structural layout tags conditionally based on screensize breakpoints.</p>
+                </header>
+
+                <!-- Exercise 14.1 -->
+                <div class="card card-custom mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-light border-bottom border-secondary pb-2 mb-3">
+                            <i class="bi bi-eye-slash text-info me-2"></i>Exercise 14.1: Responsive Element Visibility
+                        </h5>
+                        <p class="card-text text-secondary mb-4">
+                            Resize the viewport window. Containers display or collapse depending onactive breakpoint triggers:
+                        </p>
+
+                        <div class="row g-3">
+                            <!-- Box A: Mobile only -->
+                            <div class="col-12 d-md-none">
+                                <div class="visibility-box border-warning text-warning bg-warning bg-opacity-10">
+                                    <i class="bi bi-phone me-2"></i>Visible Only on Mobile (<768px)
+                                    <div style="font-size: 0.8rem;" class="opacity-75 mt-1">class="d-md-none"</div>
+                                </div>
+                            </div>
+
+                            <!-- Box B: Tablet and up -->
+                            <div class="col-12 d-none d-md-block d-lg-none">
+                                <div class="visibility-box border-info text-info bg-info bg-opacity-10">
+                                    <i class="bi bi-tablet me-2"></i>Visible Only on Tablets (>=768px and <992px)
+                                    <div style="font-size: 0.8rem;" class="opacity-75 mt-1">class="d-none d-md-block d-lg-none"</div>
+                                </div>
+                            </div>
+
+                            <!-- Box C: Desktop only -->
+                            <div class="col-12 d-none d-lg-flex justify-content-center align-items-center visibility-box border-success text-success bg-success bg-opacity-10" style="height: 76px;">
+                                <div>
+                                    <i class="bi bi-display me-2"></i>Visible Only on Desktop (>=992px)
+                                    <span style="font-size: 0.8rem;" class="opacity-75 ms-2">class="d-none d-lg-flex"</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exercise 14.2 -->
+                <div class="card card-custom mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-light border-bottom border-secondary pb-2 mb-3">
+                            <i class="bi bi-layout-sidebar-inset-reverse text-info me-2"></i>Exercise 14.2: Tablet-and-above Sidebar
+                        </h5>
+                        <p class="card-text text-secondary mb-3">
+                            This layout contains a sidebar panel that is completely hidden on mobile viewports but displays cleanly on medium viewports and up (tablet/desktop):
+                        </p>
+
+                        <div class="alert alert-info bg-opacity-10 border-info text-info py-2" role="alert">
+                            <i class="bi bi-info-circle me-2"></i><strong>Sidebar Status:</strong> 
+                            <span class="d-md-none">Hidden (Mobile screen width)</span>
+                            <span class="d-none d-md-block">Visible (Tablet/Desktop width)</span>
+                        </div>
+
+                        <!-- Sidebar demo rows -->
+                        <div class="container-fluid p-0 bg-dark rounded border border-secondary overflow-hidden my-3">
+                            <div class="row g-0">
+                                <!-- Sidebar (d-none d-md-block col-md-3) -->
+                                <div class="d-none d-md-block col-md-3 bg-secondary bg-opacity-25 border-end border-secondary p-3 text-indigo" style="min-height: 150px;">
+                                    <h6 class="fw-bold text-light mb-2"><i class="bi bi-menu-button-wide-fill me-2"></i>Sidebar</h6>
+                                    <p class="mb-0 text-secondary" style="font-size: 0.8rem;">
+                                        Only visible on tablets and above.<br>
+                                        <code>d-none d-md-block col-md-3</code>
+                                    </p>
+                                </div>
+                                <!-- Content (col-12 col-md-9) -->
+                                <div class="col-12 col-md-9 p-3">
+                                    <h6 class="fw-bold text-light mb-2">Main Dashboard Board</h6>
+                                    <p class="text-secondary mb-0" style="font-size: 0.9rem;">
+                                        This content occupies 100% width on mobile, and drops to 75% width on tablet screens to accommodate the sidebar when it appears.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

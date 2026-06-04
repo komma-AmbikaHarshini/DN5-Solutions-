@@ -1,0 +1,14 @@
+{
+  "name": "bootstrap-sass-customization",
+  "version": "1.0.0",
+  "description": "NPM configuration template to compile custom Bootstrap 5 variables using Dart Sass.",
+  "scripts": {
+    "compile-sass": "sass custom.scss css/custom.bootstrap.css"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  },
+  "devDependencies": {
+    "sass": "^1.77.0"
+  }
+}

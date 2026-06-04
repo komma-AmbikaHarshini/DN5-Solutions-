@@ -1,0 +1,23 @@
+// Exercise 19.2: Override Bootstrap primary colors and border radius variables
+// These MUST be set BEFORE importing Bootstrap SCSS files
+
+// Brand colors
+$primary: #0ea5e9;    // Custom primary color (Sky Blue)
+$success: #10b981;    // Custom success color (Emerald Green)
+$warning: #f59e0b;    // Custom warning color (Amber)
+$danger: #ef4444;     // Custom danger color (Rose Red)
+$dark: #1e293b;       // Custom dark gray
+
+// Body canvas
+$body-bg: #0f172a;
+$body-color: #f8fafc;
+
+// Sizing roundness
+$border-radius: 8px;
+$border-radius-sm: 4px;
+$border-radius-lg: 16px;
+$border-radius-xl: 24px;
+
+// Finally, import the full Bootstrap source SCSS structure
+// (Note: Requires npm install to populate the node_modules directory first)
+@import "node_modules/bootstrap/scss/bootstrap";

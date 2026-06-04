@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 18: Bootstrap 5 JavaScript Plugins</title>
+    <!-- Link Bootstrap 5 via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+        .card-custom {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+        }
+        .accordion-button {
+            background-color: #1e293b;
+            color: #f8fafc;
+            border-color: #334155;
+        }
+        .accordion-button:not(.collapsed) {
+            background-color: #0ea5e9;
+            color: #fff;
+            box-shadow: inset 0 -1px 0 rgba(0,0,0,.125);
+        }
+        .accordion-button::after {
+            filter: invert(1);
+        }
+        .accordion-item {
+            background-color: #0f172a;
+            border-color: #334155;
+        }
+        .accordion-body {
+            background-color: #1e293b;
+            color: #94a3b8;
+        }
+        /* Custom modal overrides */
+        .modal-content {
+            background-color: #1e293b;
+            border: 1px solid #475569;
+            color: #f8fafc;
+        }
+        .modal-header {
+            border-bottom-color: #334155;
+        }
+        .modal-footer {
+            border-top-color: #334155;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Shared Top Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm border-bottom border-secondary">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">Bootstrap 5 Portal</a>
+            <div class="d-flex align-items-center">
+                <label class="text-light me-2 mb-0 d-none d-sm-block" for="exercise-select">Go to:</label>
+                <select id="exercise-select" class="form-select form-select-sm bg-dark text-light border-secondary" style="width: auto;" onchange="location = this.value;">
+                    <option value="Exercise1_Setup.html">1. Setting Up Bootstrap 5</option>
+                    <option value="Exercise2_Structure.html">2. Structure & Files</option>
+                    <option value="Exercise3_GridBasics.html">3. Responsive Grid Layout</option>
+                    <option value="Exercise4_ColumnLayouts.html">4. Column Layouts & Grid</option>
+                    <option value="Exercise5_AlignmentReordering.html">5. Alignment & Reordering</option>
+                    <option value="Exercise6_Flexbox.html">6. Flexbox Utilities</option>
+                    <option value="Exercise7_Typography.html">7. Typography Utilities</option>
+                    <option value="Exercise8_Forms.html">8. Bootstrap Forms</option>
+                    <option value="Exercise9_Buttons.html">9. Contextual Buttons</option>
+                    <option value="Exercise10_Navbars.html">10. Navbars & Tabs</option>
+                    <option value="Exercise11_CardsMedia.html">11. Cards & Media Objects</option>
+                    <option value="Exercise12_Spacing.html">12. Spacing Utilities</option>
+                    <option value="Exercise13_ColorsBackgrounds.html">13. Colors & Backgrounds</option>
+                    <option value="Exercise14_DisplayVisibility.html">14. Display & Visibility</option>
+                    <option value="Exercise15_BordersShadows.html">15. Borders & Shadows</option>
+                    <option value="Exercise16_Positioning.html">16. Positioning Utilities</option>
+                    <option value="Exercise17_Icons.html">17. Bootstrap Icons</option>
+                    <option value="Exercise18_Plugins.html" selected>18. JS Plugins (Modal/Accordion)</option>
+                    <option value="Exercise19_SassCustomization.html">19. Sass Customization</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#" class="text-info text-decoration-none">Bootstrap Exercises</a></li>
+                        <li class="breadcrumb-item active text-secondary" aria-current="page">Module 18</li>
+                    </ol>
+                </nav>
+
+                <header class="mb-4">
+                    <h1 class="fw-bold text-info">Bootstrap 5 JavaScript Plugins</h1>
+                    <p class="lead text-secondary">Triggering modal popups and accordion collapses utilizing Bootstrap's data-attribute selectors.</p>
+                </header>
+
+                <!-- Exercise 18.1: Modal Popup -->
+                <div class="card card-custom mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-light border-bottom border-secondary pb-2 mb-3">
+                            <i class="bi bi-window-fullscreen text-info me-2"></i>Exercise 18.1: Modal Dialog Popup
+                        </h5>
+                        <p class="card-text text-secondary mb-3">
+                            Click the action button below to trigger the modal overlay:
+                        </p>
+
+                        <div class="p-4 bg-dark border border-secondary rounded text-center my-3">
+                            <!-- Trigger Button -->
+                            <button type="button" class="btn btn-info fw-bold text-dark shadow-sm" data-bs-toggle="modal" data-bs-target="#registrationModal">
+                                Launch Registration Modal
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exercise 18.2: Accordion -->
+                <div class="card card-custom mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-light border-bottom border-secondary pb-2 mb-3">
+                            <i class="bi bi-menu-button-fill text-info me-2"></i>Exercise 18.2: Collapsible Accordion Component
+                        </h5>
+                        <p class="card-text text-secondary mb-3">
+                            Fills the layout cleanly and collapses content areas on click:
+                        </p>
+
+                        <!-- Accordion -->
+                        <div class="accordion" id="portalFaqAccordion">
+                            <!-- Item 1 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Is event registration completely free?
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#portalFaqAccordion">
+                                    <div class="accordion-body">
+                                        Yes! Most community events hosted on this portal are free to join. However, some special classes or certification workshops may require material fees as mentioned in their descriptions.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Item 2 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        How do I cancel my seat reservation?
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#portalFaqAccordion">
+                                    <div class="accordion-body">
+                                        To cancel, go to "My Bookings" page in the navigation bar, locate the event card, and click "Cancel". This releases the seat immediately back to the public pool.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Item 3 -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        Can I host my own community event?
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#portalFaqAccordion">
+                                    <div class="accordion-body">
+                                        Absolutely! Upgrade your account status to "Pro" inside the pricing dashboard, which unlocks the event builder form instantly.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Component Definition (Exercise 18.1) -->
+    <div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content shadow-lg">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold text-light" id="modalTitle">
+                        <i class="bi bi-shield-check text-info me-2"></i>Confirm Registration
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-secondary">
+                    <p>You are about to register for the <strong>Baking Masterclass</strong>.</p>
+                    <p class="mb-0" style="font-size: 0.9rem;">
+                        This action will claim 1 available seat. A confirmation ticket code will be generated and dispatched to your email.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-info btn-sm text-dark fw-bold" data-bs-dismiss="modal" onclick="alert('Seat successfully reserved!')">
+                        Confirm &amp; Register
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

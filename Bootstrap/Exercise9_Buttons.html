@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 9: Contextual Buttons</title>
+    <!-- Link Bootstrap 5 via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+        .card-custom {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Shared Top Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm border-bottom border-secondary">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">Bootstrap 5 Portal</a>
+            <div class="d-flex align-items-center">
+                <label class="text-light me-2 mb-0 d-none d-sm-block" for="exercise-select">Go to:</label>
+                <select id="exercise-select" class="form-select form-select-sm bg-dark text-light border-secondary" style="width: auto;" onchange="location = this.value;">
+                    <option value="Exercise1_Setup.html">1. Setting Up Bootstrap 5</option>
+                    <option value="Exercise2_Structure.html">2. Structure & Files</option>
+                    <option value="Exercise3_GridBasics.html">3. Responsive Grid Layout</option>
+                    <option value="Exercise4_ColumnLayouts.html">4. Column Layouts & Grid</option>
+                    <option value="Exercise5_AlignmentReordering.html">5. Alignment & Reordering</option>
+                    <option value="Exercise6_Flexbox.html">6. Flexbox Utilities</option>
+                    <option value="Exercise7_Typography.html">7. Typography Utilities</option>
+                    <option value="Exercise8_Forms.html">8. Bootstrap Forms</option>
+                    <option value="Exercise9_Buttons.html" selected>9. Contextual Buttons</option>
+                    <option value="Exercise10_Navbars.html">10. Navbars & Tabs</option>
+                    <option value="Exercise11_CardsMedia.html">11. Cards & Media Objects</option>
+                    <option value="Exercise12_Spacing.html">12. Spacing Utilities</option>
+                    <option value="Exercise13_ColorsBackgrounds.html">13. Colors & Backgrounds</option>
+                    <option value="Exercise14_DisplayVisibility.html">14. Display & Visibility</option>
+                    <option value="Exercise15_BordersShadows.html">15. Borders & Shadows</option>
+                    <option value="Exercise16_Positioning.html">16. Positioning Utilities</option>
+                    <option value="Exercise17_Icons.html">17. Bootstrap Icons</option>
+                    <option value="Exercise18_Plugins.html">18. JS Plugins (Modal/Accordion)</option>
+                    <option value="Exercise19_SassCustomization.html">19. Sass Customization</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#" class="text-info text-decoration-none">Bootstrap Exercises</a></li>
+                        <li class="breadcrumb-item active text-secondary" aria-current="page">Module 9</li>
+                    </ol>
+                </nav>
+
+                <header class="mb-4">
+                    <h1 class="fw-bold text-info">Contextual Buttons &amp; Action States</h1>
+                    <p class="lead text-secondary">Showcasing contextual button fills, outlines, layouts, and button toggle groups.</p>
+                </header>
+
+                <!-- Exercise 9.1 -->
+                <div class="card card-custom mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-light border-bottom border-secondary pb-2 mb-3">
+                            <i class="bi bi-menu-app-fill text-info me-2"></i>Exercise 9.1: Contextual Button Colors and Outlines
+                        </h5>
+                        <p class="card-text text-secondary mb-3">
+                            Fills (<code>btn-*</code>) and outline options (<code>btn-outline-*</code>) used to express layout hierarchies:
+                        </p>
+
+                        <!-- Solid Contextuals -->
+                        <h6 class="text-light fw-bold mt-3 mb-2">Contextual Colors:</h6>
+                        <div class="d-flex flex-wrap gap-2 mb-3 p-3 bg-dark border border-secondary rounded">
+                            <button class="btn btn-primary">Primary</button>
+                            <button class="btn btn-secondary">Secondary</button>
+                            <button class="btn btn-success">Success</button>
+                            <button class="btn btn-danger">Danger</button>
+                            <button class="btn btn-warning">Warning</button>
+                            <button class="btn btn-info">Info</button>
+                            <button class="btn btn-light">Light</button>
+                            <button class="btn btn-dark">Dark</button>
+                            <button class="btn btn-link text-info">Link</button>
+                        </div>
+
+                        <!-- Outline Contextuals -->
+                        <h6 class="text-light fw-bold mb-2">Outline Variation:</h6>
+                        <div class="d-flex flex-wrap gap-2 p-3 bg-dark border border-secondary rounded">
+                            <button class="btn btn-outline-primary">Primary</button>
+                            <button class="btn btn-outline-secondary">Secondary</button>
+                            <button class="btn btn-outline-success">Success</button>
+                            <button class="btn btn-outline-danger">Danger</button>
+                            <button class="btn btn-outline-warning">Warning</button>
+                            <button class="btn btn-outline-info">Info</button>
+                            <button class="btn btn-outline-light">Light</button>
+                            <button class="btn btn-outline-dark">Dark</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exercise 9.2 -->
+                <div class="card card-custom mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-light border-bottom border-secondary pb-2 mb-3">
+                            <i class="bi bi-ui-checks-grid text-info me-2"></i>Exercise 9.2: Button Groups &amp; Checkbox Toggle States
+                        </h5>
+                        
+                        <div class="row g-4">
+                            <!-- Button Groups -->
+                            <div class="col-md-6">
+                                <h6 class="text-light fw-bold mb-2">Horizontal Button Group (btn-group):</h6>
+                                <div class="p-3 bg-dark border border-secondary rounded h-75 d-flex align-items-center justify-content-center">
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn btn-primary"><i class="bi bi-align-left"></i> Left</button>
+                                        <button type="button" class="btn btn-primary"><i class="bi bi-align-center"></i> Middle</button>
+                                        <button type="button" class="btn type-primary btn-primary"><i class="bi bi-align-right"></i> Right</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Checkbox Toggles -->
+                            <div class="col-md-6">
+                                <h6 class="text-light fw-bold mb-2">Checkbox-based Button Toggles (btn-check):</h6>
+                                <div class="p-3 bg-dark border border-secondary rounded h-75 d-flex align-items-center justify-content-center">
+                                    <div class="d-flex gap-2">
+                                        <!-- Checkbox 1 -->
+                                        <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+                                        <label class="btn btn-outline-info" for="btncheck1">Toggle A</label>
+
+                                        <!-- Checkbox 2 -->
+                                        <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off" checked>
+                                        <label class="btn btn-outline-info" for="btncheck2">Toggle B</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
