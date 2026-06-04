@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 3: Use of Common Methods</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include jQuery via CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+    <!-- Shared Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-brand">jQuery portal</div>
+        <div class="nav-selector">
+            <label for="exercise-select">Go to:</label>
+            <select id="exercise-select" onchange="location = this.value;">
+                <option value="Exercise1_LibraryInclusion.html">1. Library Inclusion</option>
+                <option value="Exercise2_SelectingElements.html">2. Selecting Elements</option>
+                <option value="Exercise3_CommonMethods.html" selected>3. Common Methods</option>
+                <option value="Exercise4_CreatingModifying.html">4. Modify Elements</option>
+                <option value="Exercise5_UserInteractions.html">5. User Interactions</option>
+                <option value="Exercise6_MouseKeyboardEvents.html">6. Mouse & Keyboard</option>
+            </select>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="breadcrumb">jQuery Exercises &gt; Module 3</div>
+        
+        <header class="exercise-header">
+            <h1>Use of Common Methods</h1>
+            <p class="subtitle">Scenario: Toggle and animate element visibilities inside pages.</p>
+        </header>
+
+        <section class="card">
+            <h2 class="card-title">Objective & Task</h2>
+            <p>Implement core jQuery animation and visibility transition methods.</p>
+            <ul style="margin-top: 1rem; margin-left: 1.5rem; color: var(--text-secondary);">
+                <li>Add exactly three <code>&lt;div&gt;</code> elements with the class <code>.box</code>.</li>
+                <li>Implement triggers for: <code>.hide()</code>, <code>.show()</code>, <code>.fadeOut()</code>, <code>.fadeIn()</code>, and <code>.toggle()</code>.</li>
+                <li><strong>Bonus:</strong> Chain transition methods together (e.g. <code>.slideUp().delay(1000).slideDown()</code>).</li>
+            </ul>
+        </section>
+
+        <!-- Live Demo Card -->
+        <section class="card">
+            <h2 class="card-title">Transitions Board</h2>
+            
+            <!-- Box Container -->
+            <div class="demo-area text-center py-4 d-flex justify-content-center gap-4" style="min-height: 160px;">
+                <div class="box box-1" id="box1">Box 1</div>
+                <div class="box box-2" id="box2">Box 2</div>
+                <div class="box box-3" id="box3">Box 3</div>
+            </div>
+
+            <!-- Controller Buttons -->
+            <div class="mt-4">
+                <h6 class="text-light fw-bold mb-3"><i class="bi bi-sliders me-2"></i>Actions:</h6>
+                
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                    <button class="btn btn-secondary btn-sm" id="btnHide">Hide Box 1 (.hide)</button>
+                    <button class="btn btn-secondary btn-sm" id="btnShow">Show Box 1 (.show)</button>
+                    <button class="btn btn-secondary btn-sm" id="btnFadeOut">Fade Out Box 2 (.fadeOut)</button>
+                    <button class="btn btn-secondary btn-sm" id="btnFadeIn">Fade In Box 2 (.fadeIn)</button>
+                    <button class="btn btn-secondary btn-sm" id="btnToggle">Toggle Box 3 (.toggle)</button>
+                </div>
+                
+                <div class="border-top border-secondary pt-3">
+                    <button class="btn btn-primary w-100" id="btnChain">
+                        Execute Method Chain (.slideUp().delay(1000).slideDown())
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2 class="card-title">Portal Console Logs</h2>
+            <div class="console-box" id="jqueryConsole">
+                <!-- Log -->
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function logToConsole(message, type = 'info') {
+            const consoleBox = document.getElementById('jqueryConsole');
+            if (consoleBox) {
+                const line = document.createElement('div');
+                line.className = `console-line ${type}`;
+                line.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+                consoleBox.appendChild(line);
+                consoleBox.scrollTop = consoleBox.scrollHeight;
+            }
+        }
+
+        $(document).ready(function() {
+            logToConsole("Transition script ready.", "success");
+
+            // 1. Hide Box 1
+            $('#btnHide').click(function() {
+                logToConsole("Action: $('#box1').hide('slow')", "warning");
+                $('#box1').hide('slow');
+            });
+
+            // 2. Show Box 1
+            $('#btnShow').click(function() {
+                logToConsole("Action: $('#box1').show('slow')", "warning");
+                $('#box1').show('slow');
+            });
+
+            // 3. Fade Out Box 2
+            $('#btnFadeOut').click(function() {
+                logToConsole("Action: $('#box2').fadeOut('slow')", "warning");
+                $('#box2').fadeOut('slow');
+            });
+
+            // 4. Fade In Box 2
+            $('#btnFadeIn').click(function() {
+                logToConsole("Action: $('#box2').fadeIn('slow')", "warning");
+                $('#box2').fadeIn('slow');
+            });
+
+            // 5. Toggle Box 3
+            $('#btnToggle').click(function() {
+                logToConsole("Action: $('#box3').toggle('slow')", "warning");
+                $('#box3').toggle('slow');
+            });
+
+            // Bonus: Chaining
+            $('#btnChain').click(function() {
+                logToConsole("Chain initiated: $('.box').slideUp('slow').delay(1000).slideDown('slow')", "warning");
+                
+                // Disable button during animation to prevent queue stacking
+                $('#btnChain').prop('disabled', true);
+                
+                $('.box').slideUp('slow')
+                         .delay(1000)
+                         .slideDown('slow', function() {
+                             // Re-enable button when completed
+                             $('#btnChain').prop('disabled', false);
+                         });
+                         
+                setTimeout(() => {
+                    logToConsole("SlideUp completed. Holding for 1000ms delay...", "info");
+                }, 600);
+                
+                setTimeout(() => {
+                    logToConsole("Delay finished. Executing slideDown...", "info");
+                }, 1600);
+            });
+        });
+    </script>
+</body>
+</html>

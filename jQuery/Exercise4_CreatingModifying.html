@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 4: Creating and Modifying Elements</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* List styles */
+        #todoList {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .todo-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: slideIn 0.3s ease;
+        }
+        @keyframes slideIn {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    <!-- Include jQuery via CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+    <!-- Shared Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-brand">jQuery portal</div>
+        <div class="nav-selector">
+            <label for="exercise-select">Go to:</label>
+            <select id="exercise-select" onchange="location = this.value;">
+                <option value="Exercise1_LibraryInclusion.html">1. Library Inclusion</option>
+                <option value="Exercise2_SelectingElements.html">2. Selecting Elements</option>
+                <option value="Exercise3_CommonMethods.html">3. Common Methods</option>
+                <option value="Exercise4_CreatingModifying.html" selected>4. Modify Elements</option>
+                <option value="Exercise5_UserInteractions.html">5. User Interactions</option>
+                <option value="Exercise6_MouseKeyboardEvents.html">6. Mouse & Keyboard</option>
+            </select>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="breadcrumb">jQuery Exercises &gt; Module 4</div>
+        
+        <header class="exercise-header">
+            <h1>Creating &amp; Modifying Elements</h1>
+            <p class="subtitle">Scenario: Manage dynamically generated lists of registrations.</p>
+        </header>
+
+        <section class="card">
+            <h2 class="card-title">Objective & Task</h2>
+            <p>Insert and delete DOM nodes dynamically using jQuery creation syntax.</p>
+            <ul style="margin-top: 1rem; margin-left: 1.5rem; color: var(--text-secondary);">
+                <li>Create a form with a text input field and a submit button.</li>
+                <li>On submit, capture the input string value.</li>
+                <li>Create a new <code>&lt;li&gt;</code> element containing that value and append it to a <code>&lt;ul&gt;</code> list.</li>
+                <li>Include a "Remove All" button that clears the entire list structure.</li>
+            </ul>
+        </section>
+
+        <!-- Dynamic List Form Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+            <!-- Left Side: Creator Form -->
+            <section class="card" style="margin-bottom: 0;">
+                <h2 class="card-title">Add Guest</h2>
+                <form id="todoForm" onsubmit="event.preventDefault();">
+                    <div class="form-group">
+                        <label for="todoInput">Guest Name</label>
+                        <input type="text" id="todoInput" class="form-control" placeholder="e.g. Marcus Aurelius" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;"><i class="bi bi-plus-circle"></i> Add Guest (Append)</button>
+                </form>
+            </section>
+
+            <!-- Right Side: Live List viewport -->
+            <section class="card" style="margin-bottom: 0; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <h2 class="card-title">Guest Directory</h2>
+                    
+                    <ul id="todoList">
+                        <!-- Items appended dynamically -->
+                    </ul>
+                </div>
+
+                <div style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+                    <button class="btn btn-danger" id="btnClear" style="width: 100%; display: none;">
+                        Remove All (.empty())
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <section class="card" style="margin-top: 1.5rem;">
+            <h2 class="card-title">Portal Console Logs</h2>
+            <div class="console-box" id="jqueryConsole">
+                <!-- Log -->
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function logToConsole(message, type = 'info') {
+            const consoleBox = document.getElementById('jqueryConsole');
+            if (consoleBox) {
+                const line = document.createElement('div');
+                line.className = `console-line ${type}`;
+                line.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+                consoleBox.appendChild(line);
+                consoleBox.scrollTop = consoleBox.scrollHeight;
+            }
+        }
+
+        $(document).ready(function() {
+            logToConsole("DOM modification script online.", "success");
+
+            // Form Submit handler
+            $('#todoForm').submit(function(event) {
+                event.preventDefault(); // Prevent standard browser submit refresh
+
+                // 1. Take the value from the input
+                const inputValue = $('#todoInput').val().trim();
+                if (inputValue === '') return;
+
+                logToConsole(`Captured input value: "${inputValue}"`, "info");
+
+                // 2. Create a new <li> element with that value
+                logToConsole("Creating element: $('<li>').text('" + inputValue + "')", "info");
+                
+                // Construct styled li item
+                const newItem = $('<li class="todo-item"></li>').text(inputValue);
+                
+                // Add a small delete button just for enhanced UX
+                const deleteBtn = $('<button class="btn btn-danger btn-xs" style="padding:0.25rem 0.5rem; font-size:0.75rem;"></button>')
+                    .text("Delete")
+                    .click(function() {
+                        logToConsole("Removing single guest card...", "warning");
+                        $(this).parent().fadeOut('fast', function() {
+                            $(this).remove();
+                            checkListState();
+                        });
+                    });
+                
+                newItem.append(deleteBtn);
+
+                // 3. Append it to an unordered list (<ul>)
+                logToConsole("Appending element to list: $('#todoList').append(newItem)", "info");
+                $('#todoList').append(newItem);
+                logToConsole(`"${inputValue}" added to guest directory.`, "success");
+
+                // Reset input field
+                $('#todoInput').val('');
+                checkListState();
+            });
+
+            // 4. Remove All button click
+            $('#btnClear').click(function() {
+                logToConsole("Action: $('#todoList').empty() triggered.", "warning");
+                
+                // Fade out list contents first for premium feel
+                $('#todoList').fadeOut('slow', function() {
+                    $(this).empty().show(); // Empty nodes and restore visibility state
+                    logToConsole("All list elements cleared from the DOM tree.", "success");
+                    checkListState();
+                });
+            });
+
+            // Helper to toggle visibility of Remove All button
+            function checkListState() {
+                const itemCount = $('#todoList li').length;
+                if (itemCount > 0) {
+                    $('#btnClear').fadeIn('fast');
+                } else {
+                    $('#btnClear').fadeOut('fast');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
